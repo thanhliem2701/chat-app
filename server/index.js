@@ -17,10 +17,9 @@ io.on("connection", socket => {
   console.log("New user connected to server !");
 
   // public topic (MSG/email/...) ban cho client
-  socket.emit("email", {
-    from: "server",
-    to: "thanhliem2701@gmail.com",
-    content: "Hello"
+  socket.emit("message", {
+    from: "Admin",
+    text: "Welcome to chat app !"
   });
 
   // Nhan tu client
