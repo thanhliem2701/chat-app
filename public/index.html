@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Chat-app</title>
   </head>
   <body>
     <h1>WellCome To Chat App</h1>
@@ -16,16 +16,22 @@
         console.log("connect to the server !!");
       });
 
-      // nhan tu server
-      socket.on("message", msg => {
+      socket.on("welcome", msg => {
         console.log(msg);
       });
 
-      // ban len server
-      socket.emit("facebook", {
-        from: "client",
-        to: "server chat",
-        content: "client sent to server"
+      socket.on("newUser", msg => {
+        console.log(msg);
+      });
+      //send MSG to server
+      //Server send MSG to other client
+      socket.emit("createMsg", {
+        from: "louis A",
+        text: "Do you see me ? I am Louis A !"
+      });
+
+      socket.on("sendMsg", msg => {
+        console.log(msg);
       });
 
       socket.on("disconnect", () => {
