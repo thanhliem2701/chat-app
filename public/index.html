@@ -4,39 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Chat-app</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body>
-    <h1>WellCome To Chat App</h1>
+  <body class="centered-form">
+    <div class="centered-form__form">
+      <form action="/chat.html" method="GET">
+        <div class="form-field">
+          <h3>CHAT ROOM</h3>
+        </div>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io();
-      socket.on("connect", () => {
-        console.log("connect to the server !!");
-      });
+        <div class="form-field">
+          <label for="name">Name :</label>
+          <input type="text" name="name" id="name" />
+        </div>
 
-      socket.on("welcome", msg => {
-        console.log(msg);
-      });
+        <div class="form-field">
+          <label for="name">Room :</label>
+          <input type="text" name="room" id="room" />
+        </div>
 
-      socket.on("newUser", msg => {
-        console.log(msg);
-      });
-      //send MSG to server
-      //Server send MSG to other client
-      socket.emit("createMsg", {
-        from: "louis A",
-        text: "Do you see me ? I am Louis A !"
-      });
-
-      socket.on("sendMsg", msg => {
-        console.log(msg);
-      });
-
-      socket.on("disconnect", () => {
-        console.log("Disconnect to server !!");
-      });
-    </script>
+        <div class="form-field">
+          <button>JOIN</button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

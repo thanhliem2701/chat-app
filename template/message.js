@@ -6,4 +6,12 @@ const generateTextMessage = (from, text) => {
   };
 };
 
-module.exports = {generateTextMessage}
+const generateLocation = (from, latitude, longtitude) => {
+  return {
+    from,
+    latitude,
+    longtitude
+  };
+};
+
+module.exports = { generateTextMessage,generateLocation };
